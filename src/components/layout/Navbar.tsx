@@ -64,14 +64,23 @@ export function Navbar() {
           </a>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setIsMobileOpen(!isMobileOpen)}
-          className="md:hidden text-white p-2"
-          aria-label="Toggle menu"
-        >
-          {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile toggle & CV */}
+        <div className="flex md:hidden items-center gap-3">
+          <a
+            href="/cv.pdf"
+            download="Reda_CV.pdf"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border border-white/10 text-zinc-300 hover:bg-white/5 transition-all"
+          >
+            <Download size={14} /> CV
+          </a>
+          <button
+            onClick={() => setIsMobileOpen(!isMobileOpen)}
+            className="text-white p-1"
+            aria-label="Toggle menu"
+          >
+            {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
