@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { navLinks, siteConfig } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,13 +47,22 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* CTA */}
-        <a
-          href="#contact"
-          className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-gradient-to-r from-violet-600 to-cyan-600 text-white hover:from-violet-500 hover:to-cyan-500 transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]"
-        >
-          Let&apos;s Talk
-        </a>
+        {/* CTAs */}
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="/cv.pdf"
+            download="Reda_CV.pdf"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border border-white/10 text-zinc-300 hover:bg-white/5 hover:border-white/20 hover:text-white transition-all duration-300"
+          >
+            <Download size={16} /> CV
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-gradient-to-r from-violet-600 to-cyan-600 text-white hover:from-violet-500 hover:to-cyan-500 transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]"
+          >
+            Let&apos;s Talk
+          </a>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -84,11 +93,19 @@ export function Navbar() {
               </a>
             </li>
           ))}
-          <li>
+          <li className="flex flex-col items-center gap-4">
+            <a
+              href="/cv.pdf"
+              download="Reda_CV.pdf"
+              onClick={() => setIsMobileOpen(false)}
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium border border-white/10 text-zinc-300 w-full justify-center"
+            >
+              <Download size={16} /> Download CV
+            </a>
             <a
               href="#contact"
               onClick={() => setIsMobileOpen(false)}
-              className="inline-flex px-6 py-2.5 rounded-full text-sm font-medium bg-gradient-to-r from-violet-600 to-cyan-600 text-white"
+              className="inline-flex px-6 py-2.5 rounded-full text-sm font-medium bg-gradient-to-r from-violet-600 to-cyan-600 text-white w-full justify-center"
             >
               Let&apos;s Talk
             </a>
